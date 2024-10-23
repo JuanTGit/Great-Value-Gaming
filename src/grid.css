@@ -1,0 +1,47 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	background-image: none;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 10px;
+    width: 1500px;
+    height: 900px;
+    border: 2px solid #ccc;
+    position: relative;
+	/* margin-top: 20px; */
+	margin: 20px;
+}
+
+.game-grid-cell {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.cat {
+    width: 60px;
+    height: 60px;
+    background-image: url('./assets/sprites/Meow-Knight_Idle.png');
+    background-size: cover;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.cat.run {
+    background-image: url('./assets/sprites/Meow-Knight_Run.png');
+}
+
+.cat.jump {
+    background-image: url('./assets/sprites/Meow-Knight_Jump.png');
+}

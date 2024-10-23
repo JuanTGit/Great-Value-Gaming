@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaHome, FaGamepad, FaServicestack, FaEnvelope, FaUserAlt } from "react-icons/fa";
+import { FaHome, FaGamepad, FaServicestack, FaEnvelope } from "react-icons/fa";
 
 function Navbar() {
-	const [collapsed, setCollapsed] = useState(false);
+	const [collapsed, setCollapsed] = useState(true);
 
-	const toggleNavbar = () => {
-		setCollapsed(!collapsed);
-	};
+	const expandNavbar = () => setCollapsed(false);
+	const collapseNavbar = () => setCollapsed(true);
 
 	return(
-		<nav className={`vertical-navbar ${collapsed ? 'collapsed' : ''}`}>
+		<nav className={`vertical-navbar ${collapsed ? 'collapsed' : ''}`} onMouseEnter={expandNavbar} onMouseLeave={collapseNavbar}>
 			<div className="navbar-logo">
-				<img src="/gvlogo.png" alt="Logo" />
+				<img src={collapsed ? "/logo.png" : "/logotxt.png"} alt="Logo" />
 			</div>
 	
 	
@@ -20,7 +19,7 @@ function Navbar() {
 				<li>
 					<Link to="/home">
 						<FaHome className="icon" />
-						{!collapsed && <span>Home</span>} {/* Show text only when expanded */}
+						{!collapsed && <span>Home</span>}
 					</Link>
 				</li>
 				<li>
@@ -42,17 +41,6 @@ function Navbar() {
 					</Link>
 				</li>
 			</ul>
-	
-			<button className="collapse-btn" onClick={toggleNavbar}>
-				{collapsed ? '>' : '<'} {/* Icon changes based on collapse state */}
-			</button>
-
-			<div className="navbar-user">
-				<Link to="/login" className="login-btn">
-					<FaUserAlt className="icon" />
-					{!collapsed && <span>Login</span>}
-				</Link>
-			</div>
 	  </nav>  
 	)
 }
