@@ -1,19 +1,20 @@
+import { Link } from "react-router-dom";
 
 function Navbar() {
 	return(
 		<>
 			<nav className="vertical-navbar">
 				<div className="navbar-logo">
-				<img src="/images/logo.png" alt="Logo" />
+					<img src="/images/logo.png" alt="Logo" />
 				</div>
 				<ul className="navbar-links">
-				<li><a href="#home">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#contact">Contact</a></li>
+					<li><Link to="/home">Home</Link></li>
+					<li><Link to="/games">Games</Link></li>
+					<li><Link to="/services">Services</Link></li>
+					<li><Link to="/contact">Contact</Link></li>
 				</ul>
 				<div className="navbar-user">
-				<a href="#login" className="login-btn">Login</a>
+					<Link to="/login" className="login-btn">Login</Link>
 				</div>
 			</nav>
 		</>
