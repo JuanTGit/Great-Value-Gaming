@@ -8,15 +8,14 @@ html, body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(9, 1fr);
     gap: 10px;
-    width: 1500px;
-    height: 900px;
+    width: 1600px; /* Make sure this is set correctly */
+    height: 900px; /* Make sure this is set correctly */
     border: 2px solid #ccc;
     position: relative;
-	/* margin-top: 20px; */
-	margin: 20px;
+    margin: 20px;
 }
 
 .game-grid-cell {
@@ -30,18 +29,20 @@ html, body {
 }
 
 .cat {
-    width: 60px;
-    height: 60px;
-    background-image: url('./assets/sprites/Meow-Knight_Idle.png');
-    background-size: cover;
+    width: 60px; /* Width of each sprite frame */
+    height: 60px; /* Height of each sprite frame */
+    background-image: url('./assets/sprites/Meow-Knight_Run.png'); /* Path to your sprite sheet */
+    background-size: 60px 600px; /* Width is the width of one sprite frame; height is total height of sprite sheet */
     position: absolute;
     transition: transform 0.3s ease;
+    background-color: transparent; /* Ensure background is transparent */
 }
 
-.cat.run {
-    background-image: url('./assets/sprites/Meow-Knight_Run.png');
+.cat.flip {
+    transform: scaleX(-1); /* Flip the sprite horizontally */
 }
 
 .cat.jump {
-    background-image: url('./assets/sprites/Meow-Knight_Jump.png');
+    background-image: url('./assets/sprites/Meow-Knight_Jump.png'); /* Update for jump animation if different sprite sheet */
+    background-size: 60px 60px; /* Adjust if jump sprites are different size */
 }
